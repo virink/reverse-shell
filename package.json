@@ -2,13 +2,6 @@
   "name": "reverse-shell",
   "version": "1.0.0",
   "description": "Reverse Shell as a Service - https://resh.now.sh",
-  "main": "src/index.js",
-  "scripts": {
-    "start": "micro",
-    "test": "xo && nyc ava",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "deploy": "now --public --env NODE_ENV=production && now alias"
-  },
   "now": {
     "alias": [
       "resh"
