@@ -1,0 +1,14 @@
+{
+    "alias": [
+        "resh"
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "headers": {
+                "author": "Virink"
+            },
+            "dest": "/api/reverseshell/$1"
+        }
+    ]
+}

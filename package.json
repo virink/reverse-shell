@@ -2,20 +2,6 @@
   "name": "reverse-shell",
   "version": "1.0.0",
   "description": "Reverse Shell as a Service - https://resh.now.sh",
-  "now": {
-    "alias": [
-      "resh"
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "headers": {
-          "author": "Virink"
-        },
-        "dest": "/api/reverseshell/$1"
-      }
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/virink/reverse-shell.git"
