@@ -1,11 +1,8 @@
 {
   "name": "reverse-shell",
-  "version": "1.1.2",
-  "description": "Reverse Shell as a Service - https://shell.now.sh",
+  "version": "1.0.0",
+  "description": "Reverse Shell as a Service - https://resh.now.sh",
   "main": "src/index.js",
-  "files": [
-    "src"
-  ],
   "scripts": {
     "start": "micro",
     "test": "xo && nyc ava",
@@ -14,38 +11,36 @@
   },
   "now": {
     "alias": [
-      "shell",
-      "reverseshell",
-      "xn--io8h"
+      "resh"
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "headers": {
+          "author": "Virink"
+        },
+        "dest": "/api/reverseshell/$1"
+      }
     ]
-  },
-  "xo": {
-    "extends": "xo-lukechilds"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lukechilds/reverse-shell.git"
+    "url": "git+https://github.com/virink/reverse-shell.git"
   },
   "keywords": [
     "reverse",
     "shell",
-    "pentest"
+    "pentest",
+    "ctf"
   ],
-  "author": "Luke Childs <lukechilds123@gmail.com> (http://lukechilds.co.uk)",
+  "author": "Virink <virink@outlook.com> (https://www.virzz.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lukechilds/reverse-shell/issues"
+    "url": "https://github.com/virink/reverse-shell/issues"
   },
-  "homepage": "https://github.com/lukechilds/reverse-shell",
-  "dependencies": {
-    "micro": "^9.0.0"
-  },
+  "homepage": "https://github.com/virink/reverse-shell",
+  "dependencies": {},
   "devDependencies": {
-    "ava": "^0.25.0",
-    "coveralls": "^3.0.0",
-    "eslint-config-xo-lukechilds": "^1.0.0",
-    "nyc": "^11.0.3",
-    "this": "^1.0.2",
-    "xo": "^0.20.1"
+    "@now/node": "^1.6.1"
   }
 }
