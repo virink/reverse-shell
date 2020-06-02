@@ -36,7 +36,7 @@ fi`;
 };
 
 export default (req: NowRequest, res: NowResponse) => {
-    const [host, port] = req.url.substr(1).split(':');
+    const [host, port] = req.query.q.toString().split(':');
     res.setHeader('content-type', 'text/plain')
     res.send(usage + (host && port && generateScript(host, port)))
 }

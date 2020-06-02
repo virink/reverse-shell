@@ -8,7 +8,7 @@
             "headers": {
                 "author": "Virink"
             },
-            "dest": "/api/reverseshell/$1"
+            "dest": "/api/reverseshell?q=$1"
         }
     ]
 }
